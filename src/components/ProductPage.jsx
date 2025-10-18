@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import ProductGallery from "./ProductGallery";
+import ProductHeader from "./ProductHeader";
 import ProductForm from "./ProductForm";
 import ProductInfo from "./ProductInfo";
 import CustomerReviews from "./CustomerReviews";
@@ -32,10 +33,9 @@ Key Features:
     images: [
       "/images/Get_Real_Compliments_2_3ceb0712-825e-4581-a076-775de77675af.jpg",
       "/images/Main_36fb22d0-20a1-434f-a624-fd83770bbc1d.jpg",
+      "/images/image3.webp",
       "/images/VENOM_LOVE_MAGNET.jpg",
-      "/images/venom_gif.gif",
-      "/images/KIARA-2_ce0c308b-963b-4f17-b0dd-6b923fc2f20b.png",
-      "/images/KIARA-4_55d9ba95-6b8d-41ac-b58d-bf0f59bc5120.png",
+      "/images/Untitleddesign_1.jpg",
     ],
 
     features: [
@@ -71,7 +71,7 @@ Key Features:
   return (
     <div className="py-10 md:py-16 lg:py-20 pb-20">
       <div className="container">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-15 items-start">
           <ProductGallery
             images={product.images}
             productName={product.name}
@@ -80,6 +80,7 @@ Key Features:
           />
 
           <div className="flex flex-col gap-0">
+            <ProductHeader product={product} />
             <ProductForm product={product} addToCart={addToCart} />
 
             <CustomerReviews />
