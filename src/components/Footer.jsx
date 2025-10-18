@@ -20,7 +20,7 @@ const Footer = () => {
 
 
   return (
-    <div className="bg-[rgb(18,18,18)] py-12 md:py-16 lg:py-20 px-4">
+    <div className="bg-[rgb(18,18,18)] py-[100px] md:py-16 lg:py-20 px-4">
       <div className="max-w-sm md:max-w-4xl lg:max-w-6xl mx-auto">
         {/* Brand Logo */}
         <img className='w-[125px] h-[75px] md:w-[150px] md:h-[90px] lg:w-[175px] lg:h-[105px] mt[-20px] ml-[120px] md:ml-0 md:mx-auto lg:mx-auto mb-[60px] md:mb-[80px] lg:mb-[100px]' srcset="//fadebykiara.com/cdn/shop/files/KIARA-4_55d9ba95-6b8d-41ac-b58d-bf0f59bc5120.png?v=1732865587&amp;width=125, //fadebykiara.com/cdn/shop/files/KIARA-4_55d9ba95-6b8d-41ac-b58d-bf0f59bc5120.png?v=1732865587&amp;width=250 2x" src="//fadebykiara.com/cdn/shop/files/KIARA-4_55d9ba95-6b8d-41ac-b58d-bf0f59bc5120.png?v=1732865587&amp;width=760" alt="" loading="lazy" width="500" height="300"/>
