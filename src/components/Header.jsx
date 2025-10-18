@@ -24,7 +24,7 @@ const Header = ({ cartCount, toggleCart }) => {
           {/* Logo - Center */}
           <div className="absolute left-1/2 transform -translate-x-1/2">
             <a href="/" className="block text-center">
-              <h1 className="text-[22px] md:text-[26px] font-bold tracking-[0.25em] m-0 leading-tight text-black">
+              <h1 className="text-4xl md:text-[2px] font-bold tracking-[0] m-0 leading-tight text-black">
                 KIARA
               </h1>
               <p className="text-[8px] md:text-[9px] tracking-[0.35em] font-light uppercase text-black mt-0">

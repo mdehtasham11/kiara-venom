@@ -191,7 +191,7 @@ const ProductForm = ({ product, addToCart }) => {
       </div>
 
       {/* Authenticity */}
-      <div className="text-center text-md text-black-600 mb-2 leading-relaxed">
+      <div className="text-justify text-md text-black-600 mb-2 leading-relaxed">
         Authenticity Guaranteed | Ships only from FadeByKiara.com
       </div>
 
