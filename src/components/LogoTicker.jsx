@@ -12,7 +12,7 @@ const LogoTicker = () => {
   const duplicatedLogos = Array(10).fill(logos).flat();
 
   return (
-    <div className="logo-ticker-wrapper overflow-hidden py-8 bg-transparent">
+    <div className="logo-ticker-wrapper overflow-hidden py-4 bg-transparent">
       <div className="logo-ticker-container">
         <div className="logo-ticker flex items-center gap-12">
           {duplicatedLogos.map((logo, index) => (
