@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import WaveDivider from "./WaveDivider";
+import LogoTicker from "./LogoTicker";
 
 const GuaranteeSection = () => {
   const [openAccordion, setOpenAccordion] = useState(null);
@@ -86,28 +88,20 @@ const GuaranteeSection = () => {
         </div>
       </div>
 
-      {/* As Seen On */}
-      <div className="text-center py-8">
-        <h3 className="text-xl font-bold tracking-[2px] mb-6 text-gray-900">
+      {/* As Seen On Section */}
+      <div className="text-center py-12">
+        <h3 className="text-xl font-bold tracking-[3px] mb-8 text-gray-900 text-center">
           AS SEEN ON
         </h3>
-        <div className="flex justify-center items-center gap-8 flex-wrap">
-          <img
-            src="/images/Vogue-Logo.png"
-            alt="Vogue"
-            className="h-10 w-auto object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all"
-          />
-          <img
-            src="/images/Cosmopolitan-Emblem.png"
-            alt="Cosmopolitan"
-            className="h-10 w-auto object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all"
-          />
-          <img
-            src="/images/Instagram-Logo-2010-2013.png"
-            alt="Instagram"
-            className="h-10 w-auto object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all"
-          />
-        </div>
+      </div>
+
+      <div className="bg-[#ffd4d4] text-center">
+        <LogoTicker />
+      </div>
+
+      {/* Wave Divider Bottom */}
+      <div className="-mt-1">
+        <WaveDivider flip={false} topColor="#ffd4d4" bottomColor="#ffffff" />
       </div>
     </div>
   );

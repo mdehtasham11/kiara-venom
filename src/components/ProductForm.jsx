@@ -7,7 +7,7 @@ const ProductForm = ({ product, addToCart }) => {
       title: "BUY 1 GET 1 FREE",
       subtitle: "Each for Rs. 499",
       price: 999,
-      originalPrice: 2799,
+      originalPrice: 2798,
       upiDiscount: 100,
     },
     {
@@ -15,7 +15,7 @@ const ProductForm = ({ product, addToCart }) => {
       title: "BUY 2 GET 2 FREE",
       subtitle: "Each for Rs. 349",
       price: 1399,
-      originalPrice: 5598,
+      originalPrice: 5596,
       upiDiscount: 100,
     },
     {
@@ -51,67 +51,35 @@ const ProductForm = ({ product, addToCart }) => {
 
   return (
     <div className="bg-white">
-      {/* Header */}
-      <div className="mb-3 text-center">
-        <h1 className="text-2xl md:text-3xl font-bold mb-1 leading-tight">
-          {product.name}
-        </h1>
-        {product.subtitle && (
-          <p className="text-base md:text-lg text-gray-600">
-            {product.subtitle}
-          </p>
-        )}
-      </div>
-
-      {/* Reviews */}
-      <div className="flex items-center justify-center gap-2 mb-5">
-        <div className="flex gap-0.5">
-          {[...Array(4)].map((_, i) => (
-            <span key={i} className="text-orange-500 text-lg">
-              ★
-            </span>
-          ))}
-          <span
-            className="text-lg bg-gradient-to-r from-orange-500 via-orange-500 to-gray-300 bg-clip-text text-transparent"
-            style={{ backgroundSize: "50% 100%", backgroundPosition: "left" }}
-          >
-            ★
-          </span>
-        </div>
-        <span className="text-sm text-gray-600 font-medium">
-          ({product.reviews.count.toLocaleString()}+ Reviews)
-        </span>
-      </div>
-
       {/* Features */}
-      <div className="flex flex-col gap-2.5 mb-6">
+      <div className="flex flex-col mb-6">
         <div className="flex items-center gap-2.5">
-          <span className="text-lg w-5 flex-shrink-0 text-orange-500">⚡</span>
-          <span className="text-sm text-gray-900 font-medium">
+          <span className="text-lg w-5 flex-shrink-0">✨ </span>
+          <span className="text-[14px] text-[#121212E6] font-bold font-body">
             Command Attention
           </span>
         </div>
         <div className="flex items-center gap-2.5">
           <span className="text-lg w-5 flex-shrink-0 text-pink-600">💕</span>
-          <span className="text-sm text-gray-900 font-medium">
+          <span className="text-[14px] text-[#121212E6] font-bold font-body">
             Increase Compliments
           </span>
         </div>
         <div className="flex items-center gap-2.5">
-          <span className="text-lg w-5 flex-shrink-0 text-red-700">Ω</span>
-          <span className="text-sm text-gray-900 font-medium">
+          <span className="text-lg w-5 flex-shrink-0 text-red-700">🧲</span>
+          <span className="text-[14px] text-[#121212E6] font-bold font-body">
             Pheromone Power
           </span>
         </div>
         <div className="flex items-center gap-2.5">
-          <span className="text-lg w-5 flex-shrink-0 text-red-700">🔥</span>
-          <span className="text-sm text-gray-900 font-medium">
+          <span className="text-lg w-5 flex-shrink-0 text-red-700">💃 </span>
+          <span className="text-[14px] text-[#121212E6] font-bold font-body">
             Empower Your Feminine Energy:
           </span>
         </div>
         <div className="flex items-center gap-2.5">
-          <span className="text-lg w-5 flex-shrink-0 text-pink-600">🌸</span>
-          <span className="text-sm text-gray-900 font-medium">
+          <span className="text-lg w-5 flex-shrink-0 text-pink-600">🌸 </span>
+          <span className="text-[14px] text-[#121212E6] font-bold font-body">
             Long-Lasting Scent
           </span>
         </div>
@@ -119,12 +87,12 @@ const ProductForm = ({ product, addToCart }) => {
 
       {/* Bundle Section */}
       <div className="mb-5">
-        <div className="flex items-center gap-3 mb-4">
-          <span className="flex-1 h-px bg-[#8b4513]"></span>
-          <span className="text-sm font-bold text-[#8b4513] tracking-wider">
+        <div className="flex items-center gap-2 mb-2">
+          <span className="flex-1 h-px bg-[#800000]"></span>
+          <span className="text-sm font-bold text-[black] tracking-wider">
             BUNDLE & SAVE
           </span>
-          <span className="flex-1 h-px bg-[#8b4513]"></span>
+          <span className="flex-1 h-px bg-[#800000]"></span>
         </div>
 
         <div className="flex flex-col gap-3">
@@ -163,7 +131,7 @@ const ProductForm = ({ product, addToCart }) => {
                     </span>
                   </div>
                 </div>
-                <span className="absolute -top-px -right-px bg-[#8b0000] text-white px-3 py-1.5 rounded-tr-[10px] rounded-bl-lg text-[11px] font-bold whitespace-nowrap">
+                <span className="absolute -top-2 -right-2 bg-[#600000] text-white px-4 rounded-sm text-[15px] font-extrabold whitespace-nowrap transform rotate-2 shadow-md">
                   + ₹{bundle.upiDiscount} UPI Discount
                 </span>
               </div>
