@@ -6,19 +6,19 @@ const CustomerReviews = () => {
   const most_recent = [
     {
       name: "Priyanka",
-      text: "Every time I hug someone they tell me I smell amazing! They all want to get their own now.",
-      image: "/images/ai_girl.jpg",
+      text: "I have had compliments on my perfume. Every time I hug someone they tell me I smell amazing! They all want to get their own now.",
+      image: "/images/ai_girls_3.png",
       rating: 5,
     },
     {
       name: "Ananya",
-      text: "This perfume is absolutely amazing! I get compliments everywhere I go. Highly recommend!",
+      text: "I am a very introvert person but this perfume has made so many conversation starter from other end. Makes me feel more confident while socializing for sure.",
       image: "/images/ai_girl_2.jpg",
       rating: 5,
     },
     {
       name: "Riya",
-      text: "Best pheromone perfume I've ever tried. The scent lasts all day and feels so elegant!",
+      text: "Kaafi acha product hai yeh, really loved the quality from Kiara. Been a repeat buyer 4 times now.",
       image: "/images/ai_girl.jpg",
       rating: 5,
     },
@@ -120,7 +120,7 @@ const CustomerReviews = () => {
   ]
 
   return (
-    <div className="my-8">
+    <div className="my-8 w-full">
       <div className="overflow-hidden w-full">
         <div
           className="flex transition-transform duration-500 ease-out"
@@ -136,19 +136,21 @@ const CustomerReviews = () => {
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <p className="text-[15px] leading-relaxed text-gray-900">
-                  {review.text}
-                </p>
-                <div className="flex flex-col gap-1 w-full">
-                  <span className="text-sm font-semibold text-gray-600 italic">
-                    {review.name}
-                  </span>
-                  <div className="flex gap-0.5">
-                    {[...Array(review.rating)].map((_, i) => (
-                      <span key={i} className="text-black text-sm">
-                        ★
-                      </span>
-                    ))}
+                <div className="flex flex-col gap-2 flex-1">
+                  <p className="text-[15px] leading-[1.6] text-gray-900">
+                    {review.text}
+                  </p>
+                  <div className="flex flex-row items-center gap-2">
+                    <span className="text-sm font-semibold text-gray-600 italic">
+                      {review.name}
+                    </span>
+                    <div className="flex gap-0.5">
+                      {[...Array(review.rating)].map((_, i) => (
+                        <span key={i} className="text-[#800000] text-sm">
+                          ★
+                        </span>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </div>

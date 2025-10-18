@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Menu, Search, ShoppingBag, X } from "lucide-react";
 
 const Header = ({ cartCount, toggleCart }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -17,19 +18,7 @@ const Header = ({ cartCount, toggleCart }) => {
             onClick={toggleMobileMenu}
             aria-label="Toggle menu"
           >
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-            >
-              <line x1="3" y1="6" x2="21" y2="6"></line>
-              <line x1="3" y1="12" x2="21" y2="12"></line>
-              <line x1="3" y1="18" x2="21" y2="18"></line>
-            </svg>
+            <Menu size={24} />
           </button>
 
           {/* Logo - Center */}
@@ -50,18 +39,7 @@ const Header = ({ cartCount, toggleCart }) => {
               className="p-2 hover:opacity-70 transition-opacity"
               aria-label="Search"
             >
-              <svg
-                width="22"
-                height="22"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-              >
-                <circle cx="11" cy="11" r="8"></circle>
-                <path d="m21 21-4.35-4.35"></path>
-              </svg>
+              <Search size={22} />
             </button>
 
             <button
@@ -69,19 +47,7 @@ const Header = ({ cartCount, toggleCart }) => {
               onClick={toggleCart}
               aria-label="Cart"
             >
-              <svg
-                width="22"
-                height="22"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-              >
-                <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
-                <line x1="3" y1="6" x2="21" y2="6"></line>
-                <path d="M16 10a4 4 0 0 1-8 0"></path>
-              </svg>
+              <ShoppingBag size={22} />
               {cartCount > 0 && (
                 <span className="absolute -top-1 -right-1 bg-black text-white rounded-full w-4 h-4 flex items-center justify-center text-[10px] font-semibold">
                   {cartCount}

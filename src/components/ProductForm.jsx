@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { ShoppingCart, Truck, Package } from "lucide-react";
 
 const ProductForm = ({ product, addToCart }) => {
   const bundles = [
@@ -30,6 +31,55 @@ const ProductForm = ({ product, addToCart }) => {
 
   const [selectedBundle, setSelectedBundle] = useState(bundles[1]);
   const [isAdding, setIsAdding] = useState(false);
+
+  // Calculate delivery dates dynamically
+  const getDeliveryDates = () => {
+    const today = new Date();
+    const orderReady1 = new Date(today);
+    orderReady1.setDate(today.getDate() + 1);
+    const orderReady2 = new Date(today);
+    orderReady2.setDate(today.getDate() + 2);
+    const delivered1 = new Date(today);
+    delivered1.setDate(today.getDate() + 3);
+    const delivered2 = new Date(today);
+    delivered2.setDate(today.getDate() + 5);
+
+    const formatDate = (date) => {
+      const months = [
+        "Jan",
+        "Feb",
+        "Mar",
+        "Apr",
+        "May",
+        "Jun",
+        "Jul",
+        "Aug",
+        "Sep",
+        "Oct",
+        "Nov",
+        "Dec",
+      ];
+      const day = date.getDate();
+      const month = months[date.getMonth()];
+      const suffix =
+        day === 1 || day === 21 || day === 31
+          ? "st"
+          : day === 2 || day === 22
+          ? "nd"
+          : day === 3 || day === 23
+          ? "rd"
+          : "th";
+      return `${month} ${day}${suffix}`;
+    };
+
+    return {
+      ordered: formatDate(today),
+      orderReady: `${formatDate(orderReady1)} - ${formatDate(orderReady2)}`,
+      delivered: `${formatDate(delivered1)} - ${formatDate(delivered2)}`,
+    };
+  };
+
+  const deliveryDates = getDeliveryDates();
 
   const handleAddToCart = () => {
     setIsAdding(true);
@@ -87,7 +137,7 @@ const ProductForm = ({ product, addToCart }) => {
 
       {/* Bundle Section */}
       <div className="mb-5">
-        <div className="flex items-center gap-2 mb-2">
+        <div className="flex items-center gap-2 mb-1">
           <span className="flex-1 h-px bg-[#800000]"></span>
           <span className="text-sm font-bold text-[black] tracking-wider">
             BUNDLE & SAVE
@@ -99,10 +149,10 @@ const ProductForm = ({ product, addToCart }) => {
           {bundles.map((bundle) => (
             <label
               key={bundle.id}
-              className={`relative block border-2 rounded-xl p-4 cursor-pointer transition-all duration-300 ${
+              className={`relative block border-2 rounded-xl p-2 cursor-pointer transition-all duration-300 ${
                 selectedBundle.id === bundle.id
-                  ? "border-[#8b4513] bg-white shadow-lg shadow-[#8b4513]/15"
-                  : "border-gray-300 bg-gray-50 hover:border-gray-400 hover:bg-white"
+                  ? "border-[#8b4513] bg-[#6000001a] shadow-lg shadow-[#8b4513]/15"
+                  : "border-gray-300 bg-[#60000005] hover:border-gray-400 hover:bg-white"
               }`}
             >
               <input
@@ -141,13 +191,13 @@ const ProductForm = ({ product, addToCart }) => {
       </div>
 
       {/* Authenticity */}
-      <div className="text-center text-xs text-gray-600 mb-4 leading-relaxed">
+      <div className="text-center text-md text-black-600 mb-2 leading-relaxed">
         Authenticity Guaranteed | Ships only from FadeByKiara.com
       </div>
 
       {/* Add to Cart Button */}
       <button
-        className={`w-full bg-black text-white border-none py-4 text-base font-bold text-center rounded-lg cursor-pointer transition-all duration-300 mb-4 tracking-wide hover:bg-gray-800 hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 ${
+        className={`w-full bg-black text-[#ECCECE] text-xl border-none py-3 font-bold text-center rounded-lg cursor-pointer transition-all duration-300 mb-4 tracking-wide hover:bg-gray-800 hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 ${
           isAdding ? "opacity-70 cursor-not-allowed" : ""
         }`}
         onClick={handleAddToCart}
@@ -156,48 +206,64 @@ const ProductForm = ({ product, addToCart }) => {
         {isAdding ? "ADDING TO CART..." : "ADD TO CART"}
       </button>
 
-      {/* Delivery Icons */}
-      <div className="flex justify-center gap-6 py-4">
-        <div className="w-12 h-12 flex items-center justify-center bg-pink-100 rounded-full text-[#8b4513]">
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1.5"
-          >
-            <circle cx="12" cy="12" r="10"></circle>
-            <path d="M12 6v6l4 2"></path>
-          </svg>
-        </div>
-        <div className="w-12 h-12 flex items-center justify-center bg-pink-100 rounded-full text-[#8b4513]">
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1.5"
-          >
-            <rect x="1" y="3" width="15" height="13"></rect>
-            <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
-            <circle cx="5.5" cy="18.5" r="2.5"></circle>
-            <circle cx="18.5" cy="18.5" r="2.5"></circle>
-          </svg>
-        </div>
-        <div className="w-12 h-12 flex items-center justify-center bg-pink-100 rounded-full text-[#8b4513]">
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1.5"
-          >
-            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-            <circle cx="12" cy="10" r="3"></circle>
-          </svg>
+      {/* Delivery Timeline */}
+      <div className="py-6 px-4">
+        <div className="max-w-md mx-auto">
+          <div className="flex items-start">
+            {/* Stage 1 - Ordered */}
+            <div
+              className="flex flex-col items-center"
+              style={{ width: "48px" }}
+            >
+              <div className="w-12 h-12 flex items-center justify-center bg-pink-100 rounded-full text-[#8b4513] mb-2">
+                <ShoppingCart size={20} strokeWidth={2} />
+              </div>
+              <div className="text-center text-xs">
+                <div className="font-semibold text-gray-800 whitespace-nowrap">
+                  {deliveryDates.ordered}
+                </div>
+                <div className="text-[#ff69b4] font-medium">Ordered</div>
+              </div>
+            </div>
+
+            {/* Connecting Line 1 */}
+            <div className="flex-1 h-0.5 bg-pink-300 mt-6"></div>
+
+            {/* Stage 2 - Order Ready */}
+            <div
+              className="flex flex-col items-center"
+              style={{ width: "48px" }}
+            >
+              <div className="w-12 h-12 flex items-center justify-center bg-pink-100 rounded-full text-[#8b4513] mb-2">
+                <Truck size={20} strokeWidth={2} />
+              </div>
+              <div className="text-center text-xs">
+                <div className="font-semibold text-gray-800 whitespace-nowrap">
+                  {deliveryDates.orderReady}
+                </div>
+                <div className="text-gray-600 font-medium">Order Ready</div>
+              </div>
+            </div>
+
+            {/* Connecting Line 2 */}
+            <div className="flex-1 h-0.5 bg-pink-300 mt-6"></div>
+
+            {/* Stage 3 - Delivered */}
+            <div
+              className="flex flex-col items-center"
+              style={{ width: "48px" }}
+            >
+              <div className="w-12 h-12 flex items-center justify-center bg-pink-100 rounded-full text-[#8b4513] mb-2">
+                <Package size={20} strokeWidth={2} />
+              </div>
+              <div className="text-center text-xs">
+                <div className="font-semibold text-gray-800 whitespace-nowrap">
+                  {deliveryDates.delivered}
+                </div>
+                <div className="text-gray-600 font-medium">Delivered</div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

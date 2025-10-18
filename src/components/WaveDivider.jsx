@@ -10,7 +10,6 @@ const WaveDivider = ({
       <div
         className="wave-divider"
         style={{
-          transform: flip ? "scaleX(1) scaleY(-1)" : "scaleX(1) scaleY(1)",
           backgroundColor: topColor,
         }}
       >
@@ -20,12 +19,18 @@ const WaveDivider = ({
           xmlnsXlink="http://www.w3.org/1999/xlink"
           viewBox="0 24 150 28"
           preserveAspectRatio="none"
-          style={{ color: bottomColor }}
+          style={{
+            color: bottomColor,
+          }}
         >
           <defs>
             <path
               id="gentle-wave"
-              d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"
+              d={
+                flip
+                  ? "M-160 0c30 0 58 18 88 18s 58-18 88-18 58 18 88 18 58-18 88-18 v-44h-352z"
+                  : "M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"
+              }
             />
           </defs>
           <g className="parallax1">
