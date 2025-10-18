@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React,{useState} from "react";
+import { X, Trash2 } from "lucide-react";
 
 const Cart = ({
   isOpen,
