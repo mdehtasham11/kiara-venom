@@ -12,6 +12,7 @@ import CustomerReview from "./components/CustomerReview";
 import CustomerReviewExtend from "./components/CustomerReviewExtend";
 import Footer from "./components/Footer";
 import SvgFill from "./components/SvgFill";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   const [cartItems, setCartItems] = React.useState([]);
@@ -105,6 +106,8 @@ function App() {
           removeFromCart={removeFromCart}
           updateQuantity={updateQuantity}
         />
+        
+        <ScrollToTop />
       </div>
     </Router>
   );

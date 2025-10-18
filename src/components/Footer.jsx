@@ -1,6 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const Footer = () => {
+  const [email, setEmail] = useState('');
+  const [isSubscribed, setIsSubscribed] = useState(false);
+
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
+  };
+
+  const handleSignup = (e) => {
+    e.preventDefault();
+    if (email.trim()) {
+      setIsSubscribed(true);
+      setEmail('');
+      // Here you would typically send the email to your backend
+      console.log('Email subscribed:', email);
+    }
+  };
+
+
   return (
     <div className="bg-[rgb(18,18,18)] py-12 md:py-16 lg:py-20 px-4">
       <div className="max-w-sm md:max-w-4xl lg:max-w-6xl mx-auto">
@@ -21,9 +39,40 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Join the Girl's Locker Room */}
-        <div>
-          <h3 className="text-[#ECCECEE6] font-bold text-[21px] md:text-[24px] lg:text-[28px]">Join the Girl's Locker Room</h3>
+        {/* Newsletter Signup Section */}
+        <div className="text-center mb-8 md:mb-12 lg:mb-16">
+          <h3 className="text-[#ECCECEE6] font-bold text-[21px] md:text-[24px] lg:text-[28px] mb-4 md:mb-6">
+            Join the Girl's Locker Room
+          </h3>
+          <p className="text-[#ECCECEE6] text-sm md:text-base lg:text-lg mb-6 md:mb-8">
+            Get an extra 15% off on your next order.
+          </p>
+          
+          <form onSubmit={handleSignup} className="max-w-md mx-auto">
+            <div className="mb-4">
+              <input
+                type="email"
+                value={email}
+                onChange={handleEmailChange}
+                placeholder="Email"
+                className="w-full px-4 py-3 bg-[rgb(18,18,18)] border border-[#ECCECEE6] rounded-lg text-[#ECCECEE6] placeholder-[#ECCECEE6] focus:outline-none focus:border-pink-300 transition-colors"
+                required
+              />
+            </div>
+            <button
+              type="submit"
+              className="w-full bg-[#ECCECEE6] text-[rgb(18,18,18)] font-bold py-3 px-6 rounded-lg hover:bg-pink-200 transition-colors"
+            >
+              {isSubscribed ? 'Thank you for subscribing!' : 'sign up'}
+            </button>
+          </form>
+        </div>
+
+        {/* Footer Bottom */}
+        <div className="flex justify-center items-center pt-6 md:pt-8 border-t border-gray-700">
+          <div className="text-[#ECCECEE6] text-sm md:text-base">
+            © 2025, Kiara
+          </div>
         </div>
       </div>
     </div>
