@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Clock, Truck, MapPin } from "lucide-react";
 
 const ProductForm = ({ product, addToCart }) => {
   const bundles = [
@@ -101,8 +102,8 @@ const ProductForm = ({ product, addToCart }) => {
               key={bundle.id}
               className={`relative block border-2 rounded-xl p-4 cursor-pointer transition-all duration-300 ${
                 selectedBundle.id === bundle.id
-                  ? "border-[#8b4513] bg-white shadow-lg shadow-[#8b4513]/15"
-                  : "border-gray-300 bg-gray-50 hover:border-gray-400 hover:bg-white"
+                  ? "border-[#8b4513] bg-[#6000001a] shadow-lg shadow-[#8b4513]/15"
+                  : "border-gray-300 bg-[#60000005] hover:border-gray-400 hover:bg-white"
               }`}
             >
               <input
@@ -159,45 +160,13 @@ const ProductForm = ({ product, addToCart }) => {
       {/* Delivery Icons */}
       <div className="flex justify-center gap-6 py-4">
         <div className="w-12 h-12 flex items-center justify-center bg-pink-100 rounded-full text-[#8b4513]">
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1.5"
-          >
-            <circle cx="12" cy="12" r="10"></circle>
-            <path d="M12 6v6l4 2"></path>
-          </svg>
+          <Clock size={24} strokeWidth={1.5} />
         </div>
         <div className="w-12 h-12 flex items-center justify-center bg-pink-100 rounded-full text-[#8b4513]">
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1.5"
-          >
-            <rect x="1" y="3" width="15" height="13"></rect>
-            <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
-            <circle cx="5.5" cy="18.5" r="2.5"></circle>
-            <circle cx="18.5" cy="18.5" r="2.5"></circle>
-          </svg>
+          <Truck size={24} strokeWidth={1.5} />
         </div>
         <div className="w-12 h-12 flex items-center justify-center bg-pink-100 rounded-full text-[#8b4513]">
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1.5"
-          >
-            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-            <circle cx="12" cy="10" r="3"></circle>
-          </svg>
+          <MapPin size={24} strokeWidth={1.5} />
         </div>
       </div>
     </div>
