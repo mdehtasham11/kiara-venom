@@ -69,7 +69,7 @@ Key Features:
   const [selectedImage, setSelectedImage] = useState(0);
 
   return (
-    <div className="py-10 md:py-20 pb-20">
+    <div className="py-10 md:py-16 lg:py-20 pb-20">
       <div className="container">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-15 items-start">
           <ProductGallery

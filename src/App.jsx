@@ -4,6 +4,14 @@ import Header from "./components/Header";
 import HorizontalTicker from "./components/HorizontalTicker";
 import ProductPage from "./components/ProductPage";
 import Cart from "./components/Cart";
+import Attract from "./components/Attract";
+import JoinWomen from "./components/JoinWomen";
+import Review from "./components/Review";
+import WhyKiara from "./components/WhyKiara";
+import CustomerReview from "./components/CustomerReview";
+import CustomerReviewExtend from "./components/CustomerReviewExtend";
+import Footer from "./components/Footer";
+import SvgFill from "./components/SvgFill";
 
 function App() {
   const [cartItems, setCartItems] = React.useState([]);
@@ -79,6 +87,16 @@ function App() {
             />
           </Routes>
         </main>
+
+        {/* New Components in Sequence */}
+        <Attract />
+        <JoinWomen />
+        <Review />
+        <WhyKiara />
+        <CustomerReview />
+        <SvgFill />
+        {/* <CustomerReviewExtend /> */}
+        <Footer />
 
         <Cart
           isOpen={isCartOpen}
