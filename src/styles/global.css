@@ -1,10 +1,10 @@
 @import "tailwindcss";
 
-* {
+/* * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
+} */
 
 body {
   font-family: 'Poppins', sans-serif;
@@ -24,3 +24,27 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0 auto;
   padding: 0 20px;
 }
+
+/* Wave animation styles ------------------------------------------------- */
+:root{
+  --wave-color: #600000; /* brand deep maroon */
+}
+
+.waves-animated-1{
+  display: block;
+  width: 100%;
+  height: 60px;
+  margin-top: 24px;
+  color: var(--wave-color);
+}
+
+.waves-animated-1 .parallax1{ animation: move-wave 8s linear infinite; opacity: 0.6; }
+.waves-animated-1 .parallax2{ animation: move-wave 10s linear infinite reverse; opacity: 0.5; }
+.waves-animated-1 .parallax3{ animation: move-wave 12s linear infinite; opacity: 0.4; }
+.waves-animated-1 .parallax4{ animation: move-wave 14s linear infinite reverse; opacity: 0.3; }
+
+@keyframes move-wave{
+  0%{ transform: translateX(0); }
+  100%{ transform: translateX(-25%); }
+}
+

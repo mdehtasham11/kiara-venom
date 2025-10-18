@@ -11,7 +11,7 @@ const Header = ({ cartCount, toggleCart }) => {
     <header className="bg-white border-b border-gray-200 py-5 sticky top-0 z-50">
       <div className="container flex items-center justify-between gap-5">
         <button
-          className="hidden md:hidden p-2"
+          className="md:hidden p-2"
           onClick={toggleMobileMenu}
           aria-label="Toggle menu"
         >
@@ -31,7 +31,7 @@ const Header = ({ cartCount, toggleCart }) => {
 
         <div className="flex-shrink-0">
           <a href="/">
-            <h1 className="text-[28px] font-bold tracking-[2px] m-0">KIARA</h1>
+            <h1 className="text-[28px] md:text-[32px] lg:text-[36px] font-bold tracking-[2px] m-0">KIARA</h1>
           </a>
         </div>
 
@@ -40,11 +40,11 @@ const Header = ({ cartCount, toggleCart }) => {
             isMobileMenuOpen ? "left-0" : "-left-[280px]"
           } md:relative md:left-0 fixed top-0 w-[280px] md:w-auto h-screen md:h-auto bg-white md:bg-transparent pt-20 md:pt-0 px-8 md:px-0 transition-all duration-300 z-[1000]`}
         >
-          <ul className="flex flex-col md:flex-row list-none gap-5 md:gap-8 m-0 p-0">
+          <ul className="flex flex-col md:flex-row list-none gap-5 md:gap-8 lg:gap-12 m-0 p-0">
             <li>
               <a
                 href="/"
-                className="text-[15px] font-medium uppercase tracking-wider hover:opacity-70 transition-opacity"
+                className="text-[15px] md:text-[16px] lg:text-[17px] font-medium uppercase tracking-wider hover:opacity-70 transition-opacity"
               >
                 Home
               </a>
@@ -52,7 +52,7 @@ const Header = ({ cartCount, toggleCart }) => {
             <li>
               <a
                 href="/products"
-                className="text-[15px] font-medium uppercase tracking-wider hover:opacity-70 transition-opacity"
+                className="text-[15px] md:text-[16px] lg:text-[17px] font-medium uppercase tracking-wider hover:opacity-70 transition-opacity"
               >
                 Shop
               </a>
@@ -60,7 +60,7 @@ const Header = ({ cartCount, toggleCart }) => {
             <li>
               <a
                 href="/about"
-                className="text-[15px] font-medium uppercase tracking-wider hover:opacity-70 transition-opacity"
+                className="text-[15px] md:text-[16px] lg:text-[17px] font-medium uppercase tracking-wider hover:opacity-70 transition-opacity"
               >
                 About
               </a>
@@ -68,7 +68,7 @@ const Header = ({ cartCount, toggleCart }) => {
             <li>
               <a
                 href="/contact"
-                className="text-[15px] font-medium uppercase tracking-wider hover:opacity-70 transition-opacity"
+                className="text-[15px] md:text-[16px] lg:text-[17px] font-medium uppercase tracking-wider hover:opacity-70 transition-opacity"
               >
                 Contact
               </a>
@@ -76,7 +76,7 @@ const Header = ({ cartCount, toggleCart }) => {
           </ul>
         </nav>
 
-        <div className="flex items-center gap-5">
+        <div className="flex items-center gap-5 md:gap-6 lg:gap-8">
           <button
             className="p-2 hover:opacity-70 transition-opacity hidden md:block"
             aria-label="Search"
