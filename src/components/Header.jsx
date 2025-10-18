@@ -64,14 +64,32 @@ const Header = ({ cartCount, toggleCart }) => {
           isMobileMenuOpen ? "-translate-x-10" : "-translate-x-[100%]"
         } fixed top-0 left-0 w-full h-full bg-[#f8d7da] shadow-2xl pl-[30px] pt-0 transition-transform duration-300 ease-in-out z-[1000]`}
       >
-        <div className="p-6 pt-20">
-          <button
-            className="absolute top-5 right-5 p-2 hover:opacity-70"
-            onClick={toggleMobileMenu}
-            aria-label="Close menu"
-          >
-            <X size={24} />
-          </button>
+        <div className="p-6 pt-2">
+          {/* Header Section */}
+          <div className="flex justify-between items-center mb-6">
+            <h2 className="text-2xl font-bold text-black">Menu</h2>
+            <button
+              className="p-2 hover:opacity-70"
+              onClick={toggleMobileMenu}
+              aria-label="Close menu"
+            >
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                className="text-black"
+              >
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
+            </button>
+          </div>
+
+          {/* Separator */}
+          <div className="border-t border-gray-300 mb-6"></div>
 
           {/* Navigation Links */}
           <ul className="flex flex-col gap-6 mb-6">
