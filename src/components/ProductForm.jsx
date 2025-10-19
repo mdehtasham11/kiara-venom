@@ -1,5 +1,16 @@
 import React, { useState } from "react";
-import { ShoppingCart, Truck, Package } from "lucide-react";
+import {
+  ShoppingCart,
+  Truck,
+  Package,
+  Eye,
+  Heart,
+  Zap,
+  MessageCircle,
+  Clock,
+  Shield,
+  Sparkles,
+} from "lucide-react";
 
 const ProductForm = ({ product, addToCart }) => {
   const bundles = [
@@ -104,31 +115,31 @@ const ProductForm = ({ product, addToCart }) => {
       {/* Features */}
       <div className="flex flex-col mb-6">
         <div className="flex items-center gap-2.5">
-          <span className="text-lg w-5 flex-shrink-0">✨ </span>
+          <Eye className="w-5 h-5 text-purple-600 flex-shrink-0" />
           <span className="text-[14px] text-[#121212E6] font-bold font-body">
             Command Attention
           </span>
         </div>
         <div className="flex items-center gap-2.5">
-          <span className="text-lg w-5 flex-shrink-0 text-pink-600">💕</span>
+          <Heart className="w-5 h-5 text-pink-600 flex-shrink-0" />
           <span className="text-[14px] text-[#121212E6] font-bold font-body">
             Increase Compliments
           </span>
         </div>
         <div className="flex items-center gap-2.5">
-          <span className="text-lg w-5 flex-shrink-0 text-red-700">🧲</span>
+          <Zap className="w-5 h-5 text-red-700 flex-shrink-0" />
           <span className="text-[14px] text-[#121212E6] font-bold font-body">
             Pheromone Power
           </span>
         </div>
         <div className="flex items-center gap-2.5">
-          <span className="text-lg w-5 flex-shrink-0 text-red-700">💃 </span>
+          <Sparkles className="w-5 h-5 text-red-700 flex-shrink-0" />
           <span className="text-[14px] text-[#121212E6] font-bold font-body">
-            Empower Your Feminine Energy:
+            Empower Your Feminine Energy
           </span>
         </div>
         <div className="flex items-center gap-2.5">
-          <span className="text-lg w-5 flex-shrink-0 text-pink-600">🌸 </span>
+          <Clock className="w-5 h-5 text-pink-600 flex-shrink-0" />
           <span className="text-[14px] text-[#121212E6] font-bold font-body">
             Long-Lasting Scent
           </span>

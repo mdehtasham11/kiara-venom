@@ -1,5 +1,13 @@
-import React,{useState} from "react";
-import { X, Trash2 } from "lucide-react";
+import React, { useState } from "react";
+import {
+  X,
+  Trash2,
+  Shield,
+  Tag,
+  ArrowRight,
+  CreditCard,
+  Star,
+} from "lucide-react";
 
 const Cart = ({
   isOpen,
@@ -9,17 +17,17 @@ const Cart = ({
   updateQuantity,
 }) => {
   const [isProtectionEnabled, setIsProtectionEnabled] = useState(false);
-  
+
   const totalQuantity = cartItems.reduce((sum, item) => sum + item.quantity, 0);
   const subtotal = cartItems.reduce(
     (total, item) => total + item.price * item.quantity,
     0
   );
-  const originalPrice = 11192.00;
-  const currentPrice = 3597.00;
+  const originalPrice = 11192.0;
+  const currentPrice = 3597.0;
   const savings = originalPrice - currentPrice;
-  const discount = 4395.00;
-  const protectionPrice = 45.00;
+  const discount = 4395.0;
+  const protectionPrice = 45.0;
 
   return (
     <>
@@ -45,18 +53,7 @@ const Cart = ({
             onClick={onClose}
             aria-label="Close cart"
           >
-            <svg
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              className="text-black"
-            >
-              <line x1="18" y1="6" x2="6" y2="18"></line>
-              <line x1="6" y1="6" x2="18" y2="18"></line>
-            </svg>
+            <X size={16} className="text-black" />
           </button>
         </div>
 
@@ -75,7 +72,9 @@ const Cart = ({
             <>
               {/* Free Shipping Section */}
               <div className="p-6 border-b border-gray-200">
-                <p className="text-black font-medium mb-2">Free shipping unlocked!</p>
+                <p className="text-black font-medium mb-2">
+                  Free shipping unlocked!
+                </p>
                 <div className="w-full bg-blue-200 h-2 rounded-full">
                   <div className="w-[95%] bg-blue-500 h-2 rounded-full"></div>
                 </div>
@@ -84,7 +83,10 @@ const Cart = ({
               {/* Product Details */}
               <div className="p-6 border-b border-gray-200">
                 {cartItems.map((item, index) => (
-                  <div key={`${item.id}-${item.selectedVariant}-${index}`} className="flex gap-4 relative mb-4 last:mb-0">
+                  <div
+                    key={`${item.id}-${item.selectedVariant}-${index}`}
+                    className="flex gap-4 relative mb-4 last:mb-0"
+                  >
                     {/* Product Image */}
                     <div className="w-20 h-24 flex-shrink-0 rounded-lg overflow-hidden">
                       <img
@@ -102,34 +104,33 @@ const Cart = ({
                         </h3>
                         <button
                           className="p-1 hover:opacity-70 transition-opacity"
-                          onClick={() => removeFromCart(item.id, item.selectedVariant)}
+                          onClick={() =>
+                            removeFromCart(item.id, item.selectedVariant)
+                          }
                           aria-label="Remove item"
                         >
-                          <svg
-                            width="16"
-                            height="16"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="2"
-                            className="text-gray-500"
-                          >
-                            <polyline points="3 6 5 6 21 6"></polyline>
-                            <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
-                          </svg>
+                          <Trash2 size={16} className="text-gray-500" />
                         </button>
                       </div>
 
                       {/* Variant Info */}
                       {item.selectedVariant && (
-                        <p className="text-xs text-gray-600 mb-2">{item.selectedVariant}</p>
+                        <p className="text-xs text-gray-600 mb-2">
+                          {item.selectedVariant}
+                        </p>
                       )}
 
                       {/* Quantity Selector */}
                       <div className="flex items-center gap-2 border border-gray-300 w-fit rounded mb-3">
                         <button
                           className="w-8 h-8 flex items-center justify-center text-lg hover:bg-gray-100 transition-colors"
-                          onClick={() => updateQuantity(item.id, item.selectedVariant, Math.max(1, item.quantity - 1))}
+                          onClick={() =>
+                            updateQuantity(
+                              item.id,
+                              item.selectedVariant,
+                              Math.max(1, item.quantity - 1)
+                            )
+                          }
                           aria-label="Decrease quantity"
                         >
                           -
@@ -139,7 +140,13 @@ const Cart = ({
                         </span>
                         <button
                           className="w-8 h-8 flex items-center justify-center text-lg hover:bg-gray-100 transition-colors"
-                          onClick={() => updateQuantity(item.id, item.selectedVariant, item.quantity + 1)}
+                          onClick={() =>
+                            updateQuantity(
+                              item.id,
+                              item.selectedVariant,
+                              item.quantity + 1
+                            )
+                          }
                           aria-label="Increase quantity"
                         >
                           +
@@ -149,19 +156,23 @@ const Cart = ({
                       {/* Pricing */}
                       <div className="space-y-1">
                         <div className="flex items-center gap-2">
-                          <span className="text-sm text-gray-400 line-through">Rs. {originalPrice.toLocaleString()}</span>
-                          <span className="text-sm font-bold text-black">Rs. {item.price.toLocaleString()}</span>
+                          <span className="text-sm text-gray-400 line-through">
+                            Rs. {originalPrice.toLocaleString()}
+                          </span>
+                          <span className="text-sm font-bold text-black">
+                            Rs. {item.price.toLocaleString()}
+                          </span>
                         </div>
-                        <p className="text-sm font-bold text-green-600">(Save Rs. {(originalPrice - item.price).toLocaleString()})</p>
+                        <p className="text-sm font-bold text-green-600">
+                          (Save Rs.{" "}
+                          {(originalPrice - item.price).toLocaleString()})
+                        </p>
                       </div>
 
                       {/* Coupon Tag */}
                       <div className="mt-2">
                         <span className="inline-flex items-center gap-1 px-2 py-1 bg-gray-100 border border-gray-300 rounded-full text-xs text-black">
-                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                            <path d="M21 12c0 1.66-1.34 3-3 3H6c-1.66 0-3-1.34-3-3s1.34-3 3-3h12c1.66 0 3 1.34 3 3z"></path>
-                            <path d="M9 12h6"></path>
-                          </svg>
+                          <Tag size={12} />
                           VENOM6
                         </span>
                       </div>
@@ -175,27 +186,35 @@ const Cart = ({
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3 flex-1">
                     <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
-                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-blue-600">
-                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                        <path d="M9 12l2 2 4-4"></path>
-                      </svg>
+                      <Shield size={16} className="text-blue-600" />
                     </div>
                     <div className="flex-1">
-                      <h4 className="text-sm font-bold text-black mb-1">Glass Break Free Protection</h4>
-                      <p className="text-xs text-gray-500">Protect your Bottle from breakage, damage, loss, or theft during shipping.</p>
+                      <h4 className="text-sm font-bold text-black mb-1">
+                        Glass Break Free Protection
+                      </h4>
+                      <p className="text-xs text-gray-500">
+                        Protect your Bottle from breakage, damage, loss, or
+                        theft during shipping.
+                      </p>
                     </div>
                   </div>
                   <div className="flex items-center gap-3">
-                    <span className="text-sm font-bold text-black">Rs. {protectionPrice}</span>
+                    <span className="text-sm font-bold text-black">
+                      Rs. {protectionPrice}
+                    </span>
                     <button
                       className={`relative w-12 h-6 rounded-full transition-colors ${
-                        isProtectionEnabled ? 'bg-green-500' : 'bg-gray-300'
+                        isProtectionEnabled ? "bg-green-500" : "bg-gray-300"
                       }`}
-                      onClick={() => setIsProtectionEnabled(!isProtectionEnabled)}
+                      onClick={() =>
+                        setIsProtectionEnabled(!isProtectionEnabled)
+                      }
                     >
                       <div
                         className={`absolute top-1 w-4 h-4 bg-white rounded-full transition-transform ${
-                          isProtectionEnabled ? 'translate-x-7' : 'translate-x-1'
+                          isProtectionEnabled
+                            ? "translate-x-7"
+                            : "translate-x-1"
                         }`}
                       ></div>
                     </button>
@@ -209,13 +228,12 @@ const Cart = ({
                   <span className="text-sm text-black">Discounts</span>
                   <div className="flex items-center gap-2">
                     <span className="inline-flex items-center gap-1 px-2 py-1 bg-gray-100 border border-gray-300 rounded-full text-xs text-black">
-                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                        <path d="M21 12c0 1.66-1.34 3-3 3H6c-1.66 0-3-1.34-3-3s1.34-3 3-3h12c1.66 0 3 1.34 3 3z"></path>
-                        <path d="M9 12h6"></path>
-                      </svg>
+                      <Tag size={12} />
                       VENOM6
                     </span>
-                    <span className="text-sm text-black">- Rs. {discount.toLocaleString()}</span>
+                    <span className="text-sm text-black">
+                      - Rs. {discount.toLocaleString()}
+                    </span>
                   </div>
                 </div>
               </div>
@@ -224,10 +242,10 @@ const Cart = ({
               <div className="p-6 bg-gray-50">
                 {/* Prepaid Discount Banner */}
                 <div className="bg-green-500 text-white p-3 rounded-lg mb-4 flex items-center justify-between">
-                  <span className="text-sm font-medium">Extra Discount on Prepaid orders</span>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M5 12h14m-7-7l7 7-7 7"></path>
-                  </svg>
+                  <span className="text-sm font-medium">
+                    Extra Discount on Prepaid orders
+                  </span>
+                  <ArrowRight size={16} />
                 </div>
 
                 {/* BUY NOW Button */}
@@ -235,21 +253,23 @@ const Cart = ({
                   <button className="flex-1 bg-black text-white py-4 px-6 rounded-lg font-bold text-lg hover:bg-gray-800 transition-colors">
                     BUY NOW
                   </button>
-                  
+
                   {/* Payment Icons */}
                   <div className="flex items-center gap-2">
                     <div className="w-8 h-8 bg-white rounded flex items-center justify-center">
-                      <span className="text-xs font-bold text-gray-600">G</span>
+                      <CreditCard size={14} className="text-gray-600" />
                     </div>
                     <div className="w-8 h-8 bg-white rounded flex items-center justify-center">
-                      <span className="text-xs font-bold text-gray-600">P</span>
+                      <Star size={14} className="text-gray-600" />
                     </div>
                   </div>
                 </div>
 
                 {/* Powered By */}
                 <div className="text-right mt-2">
-                  <span className="text-xs text-gray-400">Powered By Shiprocket</span>
+                  <span className="text-xs text-gray-400">
+                    Powered By Shiprocket
+                  </span>
                 </div>
               </div>
             </>

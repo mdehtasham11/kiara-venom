@@ -5,6 +5,10 @@ import {
   MessageCircle,
   ChevronLeft,
   ChevronRight,
+  Star,
+  Eye,
+  Heart,
+  Sparkles,
 } from "lucide-react";
 import WaveDivider from "./WaveDivider";
 
@@ -56,11 +60,7 @@ const ProductInfo = () => {
       <div className="mb-8">
         <div className="flex gap-2 items-center mb-2">
           <div className="flex-shrink-0">
-            <img
-              src="/crisis-alert.webp"
-              alt="Increased Aura"
-              className="w-6 h-6"
-            />
+            <Eye className="w-6 h-6 text-purple-600" />
           </div>
           <h3 className="text-lg font-bold text-black">Increased Aura</h3>
         </div>
@@ -74,7 +74,7 @@ const ProductInfo = () => {
       <div className="mb-8">
         <div className="flex gap-2 items-center mb-2">
           <div className="flex-shrink-0">
-            <Zap className="w-6 h-6 text-black-500" />
+            <Heart className="w-6 h-6 text-red-500" />
           </div>
           <h3 className="text-lg font-bold text-black">Fires Spark</h3>
         </div>
@@ -97,7 +97,7 @@ const ProductInfo = () => {
       <div className="mb-8">
         <div className="flex gap-2 items-center mb-2">
           <div className="flex-shrink-0">
-            <MessageCircle className="w-6 h-6 text-black-500" />
+            <Sparkles className="w-6 h-6 text-yellow-500" />
           </div>
           <h3 className="text-lg font-bold text-black">Conversation Starter</h3>
         </div>
@@ -111,7 +111,7 @@ const ProductInfo = () => {
       <div className="mb-8">
         <div className="flex gap-2 items-center mb-2">
           <div className="flex-shrink-0">
-            <Clock className="w-6 h-6 text-black-500" />
+            <Clock className="w-6 h-6 text-blue-500" />
           </div>
           <h3 className="text-lg font-bold text-black">
             Lasts longer than him

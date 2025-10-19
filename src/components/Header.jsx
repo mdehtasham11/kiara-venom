@@ -1,5 +1,15 @@
 import React, { useState } from "react";
-import { Menu, Search, ShoppingBag, X } from "lucide-react";
+import {
+  Menu,
+  Search,
+  ShoppingBag,
+  X,
+  User,
+  Home,
+  ShoppingCart,
+  Phone,
+  Mail,
+} from "lucide-react";
 
 const Header = ({ cartCount, toggleCart }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -78,54 +88,60 @@ const Header = ({ cartCount, toggleCart }) => {
             <li>
               <a
                 href="/"
-                className="text-lg font-medium text-black hover:opacity-70 transition-opacity"
+                className="flex items-center gap-3 text-lg font-medium text-black hover:opacity-70 transition-opacity"
                 onClick={toggleMobileMenu}
               >
+                <Home size={20} />
                 Home
               </a>
             </li>
             <li>
               <a
                 href="/face-masks"
-                className="text-lg font-medium text-black hover:opacity-70 transition-opacity"
+                className="flex items-center gap-3 text-lg font-medium text-black hover:opacity-70 transition-opacity"
                 onClick={toggleMobileMenu}
               >
+                <ShoppingCart size={20} />
                 Face Masks
               </a>
             </li>
             <li>
               <a
                 href="/hair-care"
-                className="text-lg font-medium text-black hover:opacity-70 transition-opacity"
+                className="flex items-center gap-3 text-lg font-medium text-black hover:opacity-70 transition-opacity"
                 onClick={toggleMobileMenu}
               >
+                <ShoppingCart size={20} />
                 Hair Care
               </a>
             </li>
             <li>
               <a
                 href="/makeup-tools"
-                className="text-lg font-medium text-black hover:opacity-70 transition-opacity"
+                className="flex items-center gap-3 text-lg font-medium text-black hover:opacity-70 transition-opacity"
                 onClick={toggleMobileMenu}
               >
+                <ShoppingCart size={20} />
                 Makeup Tools
               </a>
             </li>
             <li>
               <a
                 href="/shop-all"
-                className="text-lg font-medium text-black hover:opacity-70 transition-opacity"
+                className="flex items-center gap-3 text-lg font-medium text-black hover:opacity-70 transition-opacity"
                 onClick={toggleMobileMenu}
               >
+                <ShoppingBag size={20} />
                 Shop All
               </a>
             </li>
             <li>
               <a
                 href="/contact"
-                className="text-lg font-medium text-black hover:opacity-70 transition-opacity"
+                className="flex items-center gap-3 text-lg font-medium text-black hover:opacity-70 transition-opacity"
                 onClick={toggleMobileMenu}
               >
+                <Phone size={20} />
                 Contact Us
               </a>
             </li>
@@ -136,18 +152,7 @@ const Header = ({ cartCount, toggleCart }) => {
 
           {/* Login Section */}
           <div className="flex items-center gap-3">
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              className="text-black"
-            >
-              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-              <circle cx="12" cy="7" r="4"></circle>
-            </svg>
+            <User size={20} className="text-black" />
             <a
               href="/login"
               className="text-lg font-bold text-black hover:opacity-70 transition-opacity"

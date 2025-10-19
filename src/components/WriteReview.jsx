@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 const WriteReview = () => {
   const [rating, setRating] = useState(0);
-  const [reviewTitle, setReviewTitle] = useState('');
-  const [reviewContent, setReviewContent] = useState('');
-  const [displayName, setDisplayName] = useState('');
-  const [email, setEmail] = useState('');
+  const [reviewTitle, setReviewTitle] = useState("");
+  const [reviewContent, setReviewContent] = useState("");
+  const [displayName, setDisplayName] = useState("");
+  const [email, setEmail] = useState("");
 
   const handleStarClick = (starIndex) => {
     setRating(starIndex + 1);
@@ -14,12 +14,12 @@ const WriteReview = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Handle form submission here
-    console.log('Review submitted:', {
+    console.log("Review submitted:", {
       rating,
       reviewTitle,
       reviewContent,
       displayName,
-      email
+      email,
     });
   };
 
@@ -28,11 +28,15 @@ const WriteReview = () => {
       <div className="max-w-sm mx-auto">
         <form onSubmit={handleSubmit} className="space-y-6">
           {/* Page Title */}
-          <h2 className="text-2xl font-bold text-black text-center mb-6">Write a review</h2>
+          <h2 className="text-2xl font-bold text-black text-center mb-6">
+            Write a review
+          </h2>
 
           {/* Rating Section */}
           <div className="text-center">
-            <label className="block text-black text-sm font-medium mb-3">Rating</label>
+            <label className="block text-black text-sm font-medium mb-3">
+              Rating
+            </label>
             <div className="flex justify-center space-x-1">
               {[...Array(5)].map((_, index) => (
                 <button
@@ -43,9 +47,9 @@ const WriteReview = () => {
                 >
                   <svg
                     className={`w-6 h-6 ${
-                      index < rating ? 'text-[#613233]' : 'text-white'
+                      index < rating ? "text-[#613233]" : "text-white"
                     }`}
-                    fill={index < rating ? 'currentColor' : 'none'}
+                    fill={index < rating ? "currentColor" : "none"}
                     stroke="#613233"
                     strokeWidth="2"
                     viewBox="0 0 24 24"
@@ -63,7 +67,9 @@ const WriteReview = () => {
 
           {/* Review Title Input */}
           <div>
-            <label className="block text-black text-sm font-medium mb-2">Review Title</label>
+            <label className="block text-black text-sm font-medium mb-2">
+              Review Title
+            </label>
             <input
               type="text"
               value={reviewTitle}
@@ -75,7 +81,9 @@ const WriteReview = () => {
 
           {/* Review Content Textarea */}
           <div>
-            <label className="block text-black text-sm font-medium mb-2">Review content</label>
+            <label className="block text-black text-sm font-medium mb-2">
+              Review content
+            </label>
             <textarea
               value={reviewContent}
               onChange={(e) => setReviewContent(e.target.value)}
@@ -87,7 +95,9 @@ const WriteReview = () => {
 
           {/* Picture/Video Upload */}
           <div className="text-center">
-            <label className="block text-black text-sm font-medium mb-2">Picture/Video (optional)</label>
+            <label className="block text-black text-sm font-medium mb-2">
+              Picture/Video (optional)
+            </label>
             <div className="w-24 h-24 mx-auto border-2 border-gray-300 rounded-md flex items-center justify-center bg-white">
               <svg
                 className="w-8 h-8 text-gray-500"
@@ -109,8 +119,18 @@ const WriteReview = () => {
           <div>
             <label className="block text-black text-sm font-medium mb-2">
               Display name (displayed publicly like John Smith)
-              <svg className="inline w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              <svg
+                className="inline w-3 h-3 ml-1"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M19 9l-7 7-7-7"
+                />
               </svg>
             </label>
             <input
@@ -124,7 +144,9 @@ const WriteReview = () => {
 
           {/* Email Address Input */}
           <div>
-            <label className="block text-black text-sm font-medium mb-2">Email address</label>
+            <label className="block text-black text-sm font-medium mb-2">
+              Email address
+            </label>
             <input
               type="email"
               value={email}
@@ -137,7 +159,9 @@ const WriteReview = () => {
           {/* Privacy Policy Text */}
           <div className="text-center">
             <p className="text-black text-xs leading-relaxed">
-              How we use your data: We'll only contact you about the review you left, and only if necessary. By submitting your review, you agree to Judge.me's terms, privacy and content policies.
+              How we use your data: We'll only contact you about the review you
+              left, and only if necessary. By submitting your review, you agree
+              to Judge.me's terms, privacy and content policies.
             </p>
           </div>
 
